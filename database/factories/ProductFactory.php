@@ -8,6 +8,9 @@ $factory->define(App\Model\Product::class, function (Faker $faker) {
         'detail' =>$faker->paragraph,
         'price' => $faker -> numberBetween(100,5000),
         'stock' => $faker -> randomDigit,
-        'discount' => $faker -> numberBetween(5,25)
+        'discount' => $faker -> numberBetween(5,25),
+        'user_id' => function() {
+            return App\User::all()->random();
+            },
     ];
 });
